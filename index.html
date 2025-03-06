@@ -59,8 +59,8 @@
             height: 150px;
             object-fit: contain;
             margin-top: 10px;
-            display: block;
-	    margin: auto;
+            margin: auto;
+            display: none;
         }
         .heart {
             position: fixed;
@@ -85,7 +85,7 @@
         
         <button id="start-button" onclick="startGame()">Начать игру</button>
         
-        <img id="character-img" src="" align=center alt="Изображение персонажа">
+        <img id="character-img" src="" alt="Изображение персонажа">
         
         <div id="guess-section" style="display:none;">
             <input type="text" id="userGuess" placeholder="Введите имя">
@@ -138,20 +138,6 @@
                 showHearts();
             } else {
                 document.getElementById("result").innerText = "❌ Неправильно! Попробуйте ещё.";
-            }
-        }
-
-        function showHearts() {
-            for (let i = 0; i < 15; i++) {
-                let heart = document.createElement("div");
-                heart.innerHTML = "❤️";
-                heart.classList.add("heart");
-                heart.style.left = "50%";
-                heart.style.top = "50%";
-                heart.style.setProperty("--x-move", `${Math.random() * 400 - 200}px`);
-                heart.style.setProperty("--y-move", `${Math.random() * 400 - 200}px`);
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 2000);
             }
         }
     </script>
